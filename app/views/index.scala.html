@@ -1,0 +1,13 @@
+@import play.mvc.Http.Request
+@(request: Request)
+
+@main("Heroku Play Websockets Example") {
+  <strong>Stats</strong><br>
+  <div id="ping"></div>
+
+  <script>
+    window.websocketUrl = "@routes.Application.pingWs().webSocketURL(request, request.secure())";
+  </script>
+
+  <script type="text/javascript" charset="utf-8" src="@routes.Assets.versioned("javascripts/ping.js")"></script>
+}
